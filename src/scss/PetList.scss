@@ -1,0 +1,115 @@
+.petList {
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+
+    .header {
+        display: flex;
+        flex-wrap: wrap ;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    
+        h1 {
+            font-weight: 300;
+            color: grey;
+        }
+    
+        .button {
+            text-decoration: none;
+            color: white;
+            background: #fd8014;
+            border: none;
+            outline: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+
+                &:hover {
+                    background: #a25410;
+                }
+        }
+    }
+
+.cards{
+    display: flex;
+    flex-wrap: wrap ;
+    gap: 30px;
+    justify-content: center ;
+    align-items: center;
+}
+    .card {
+        color: grey;
+        border: 1px solid lightgray;
+        width: 31.7%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+
+        h1 {
+            margin-top: 15px;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        p {
+            line-height: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0 20px 0;
+            display: flex;
+            gap: 10px;
+            
+            button, a {
+                padding: 10px 30px ;
+                border-radius: 4px;
+                border: 1px solid #fd8014;
+                font-size: 10px;
+                cursor: pointer;
+            }
+            
+            .viewLog{
+                text-decoration: none;
+                background: #fd8014;
+                color: white;
+                border: none;
+
+                    &:hover {
+                        background: #a25410;
+                    }
+                
+            }
+            .delete {
+                color: #fd8014;
+                background: white;
+
+                    &:hover {
+                        background-color: #fd8014;
+                        color: white;
+                    }
+
+            }
+        }
+
+    }
+}
+
+
+@media (max-width: 768px) {
+    .cards {
+        width: 100%;
+
+        .card {
+            width: 80%;
+        }
+    }
+}
+
+

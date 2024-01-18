@@ -36,7 +36,6 @@ const PetList = () => {
         throw new Error("Failed to delete pet");
       }
 
-      // Remove the deleted pet from the state
       setPetData((prevData) => prevData.filter((pet) => pet.id !== id));
     } catch (error) {
       console.error("Error deleting pet:", error.message);
@@ -58,7 +57,7 @@ const PetList = () => {
               <h1>{pet.name}</h1>
               <p>{formatDate(pet.dob)}</p>
               <p>{pet.client_email}</p>
-              <div className="buttons">
+              <div className="buTtons">
                 <Link className="viewLog" to={`/ViewLog/${pet.id}`}>
                   VIEW LOG
                 </Link>

@@ -7,33 +7,14 @@ import ViewLog from './assets/ViewLog';
 import AddLog from './assets/AddLog';
 
 import './scss/style.scss';
+import Footer from './assets/Footer';
 
-export const PetContext = createContext();
 
 function App() {
-  const [pets, setPets] = useState([]);
-
-  useEffect(() => {
-    const fetchPets = async () => {
-      try {
-        const response = await fetch('https://vetbee-backend.glitch.me/v1/pets');
-        if (response.ok) {
-          const petData = await response.json();
-          setPets(petData);
-        } else {
-          console.error('Failed to fetch pets:', response.status);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-
-    fetchPets();
-  }, []);
+  
 
   return (
     <Router>
-      <PetContext.Provider value={{ pets, setPets }}>
         <>
           <Nav />
           <Routes>
@@ -42,8 +23,8 @@ function App() {
             <Route path="/AddLog/:id" element={<AddLog />} />
             <Route path="/" element={<PetList />} />
           </Routes>
+          <Footer/>
         </>
-      </PetContext.Provider>
     </Router>
   );
 }

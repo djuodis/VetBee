@@ -8,45 +8,33 @@ const ViewLog = () => {
   const [petName, setPetName] = useState('');
 
   useEffect(() => {
-    const fetchPetData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`https://vetbee-backend.glitch.me/v1/pets/${id}`);
+        const petResponse = await fetch(`https://vetbee-backend.glitch.me/v1/pets/${id}`);
+        const logsResponse = await fetch(`https://vetbee-backend.glitch.me/v1/logs/${id}`);
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch pet data');
+        if (!petResponse.ok || !logsResponse.ok) {
+          throw new Error('Failed to fetch data');
         }
 
-        const data = await response.json();
-        setPetName(data.name);
+        const petData = await petResponse.json();
+        const logsData = await logsResponse.json();
+
+        setPetName(petData.name);
+        setPetLogs(logsData);
       } catch (error) {
-        console.error('Error fetching pet data:', error.message);
+        console.error('Error fetching data:', error.message);
       }
     };
 
-    const fetchPetLogs = async () => {
-      try {
-        const response = await fetch(`https://vetbee-backend.glitch.me/v1/logs/${id}`);
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch pet logs');
-        }
-
-        const data = await response.json();
-        setPetLogs(data);
-      } catch (error) {
-        console.error('Error fetching pet logs:', error.message);
-      }
-    };
-
-    fetchPetData();
-    fetchPetLogs();
+    fetchData();
   }, [id]);
 
   return (
     <>
       <header>
         <h1>{petName}: Health Records</h1>
-        <div className="buttons">
+        <div className="Buttons">
           <Link to={`/AddLog/${id}`} className="addLog">
             ADD LOG
           </Link>
@@ -57,12 +45,12 @@ const ViewLog = () => {
       </header>
 
       <main>
-        <div className="cards">
+        <div className="logs">
           {petLogs.map((log, index) => (
-            <div className="card" key={`${log.id}-${index}`}>
+            <div className="log" key={`${log.id}-${index}`}>
               <h2>{log.status}</h2>
               <p>{log.description}</p>
-              <p className="date">{log.date}</p>
+              <p className="date">Added on: {log.date}</p>
             </div>
           ))}
         </div>

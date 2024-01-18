@@ -1,29 +1,71 @@
-input {
-    width: 40%;
-    padding: 5px 5px  ; 
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid black;
+textarea {
+  width: 40%;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid black;
 }
 
 .description {
-    padding: 5px 0px 100px 2px;
+  padding: 5px 0px 100px 2px;
 }
 
-// .buttons {
-//     display: flex;
-//     gap: 10px;
+.buttons {
+  display: flex;
+  gap: 10px;
 
-//      button {
-//         width: 8%;
-//         background: #fd8014;
-//         padding: 5px 0px;
-//         border-radius: 4px;
-//         color: white;
-//         border: none;
-//         cursor: pointer;
-//                 &:hover {
-//                     background: #a25410;
-//                 }
-//     }
-// }
+  button {
+    width: 8%;
+    background: white;
+    padding: 5px 0px;
+    border-radius: 4px;
+    color: #fd8014;
+    border: 1px solid #fd8014;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background: #a25410;
+    }
+  }
+
+  a {
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0px;
+    width: 8%;
+    background: #fd8014;
+    text-align: center;
+
+    &:hover {
+      background: #a25410;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      width: 80%;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .go_Back {
+        width: 40%;
+      }
+      button {
+        width: 40%;
+      }
+    }
+  }
+}

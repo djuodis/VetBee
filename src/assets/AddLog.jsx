@@ -35,7 +35,7 @@ const AddLog = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          pet_id: id, // Include pet_id in the request body
+          pet_id: id, 
           status: event.target.status.value,
           description: event.target.description.value,
         }),
@@ -45,7 +45,6 @@ const AddLog = () => {
         throw new Error('Failed to add a new log');
       }
 
-      // Redirect to ViewLog after adding a new log
       navigate(`/ViewLog/${id}`);
     } catch (error) {
       console.error('Error adding a new log:', error.message);
@@ -61,13 +60,13 @@ const AddLog = () => {
       <main>
         <form onSubmit={handleSubmit}>
           <h2>Status</h2>
-          <input type="text" name="status" placeholder="Huberium Cellulitus" required />
+          <textarea type="text" name="status" placeholder="Huberium Cellulitus" required />
 
           <h2>Description</h2>
-          <input className="description" type="text" name="description" placeholder="Removed some fat..." required />
+          <textarea className="description" type="text" name="description" placeholder="Removed some fat..." required />
 
           <div className="buttons">
-            <Link to={`/ViewLog/${id}`} className="goBack">
+            <Link to={`/ViewLog/${id}`} className="go_Back">
               GO BACK
             </Link>
             <button type="submit" className="add__Log">

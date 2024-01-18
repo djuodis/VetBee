@@ -59,7 +59,7 @@
             line-height: 25px;
         }
 
-        .buttons {
+        .buTtons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -87,6 +87,7 @@
                 
             }
             .delete {
+
                 color: #fd8014;
                 background: white;
 
@@ -107,7 +108,7 @@
         width: 100%;
 
         .card {
-            width: 80%;
+            width: 85%;
         }
     }
 }
